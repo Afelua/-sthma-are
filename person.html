@@ -7,6 +7,7 @@
   <link href="styles/mui.min.css" rel="stylesheet" type="text/css" />
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <link href="styles/main.css" rel="stylesheet" type="text/css" />
+
   <link rel="icon" sizes="16x16" href="images/favicon.ico">
   <title>Уход за Астмой - Asthma Care</title>
 </head>
@@ -68,7 +69,11 @@
         </div>
         <div class="mui-col-md-12">
           <h2>График наблюдений</h2>
-          <div class="mui-panel mui-col-md-6"></div>
+          <div class="mui-panel mui-col-md-8">
+             <div class="demo-container">
+                <div id="placeholder" class="demo-placeholder"></div>
+              </div>
+          </div>
         </div>
         <div class="mui-col-md-12">
           <h2>Список наблюдений</h2>
@@ -107,7 +112,38 @@
   </div>
 </footer>
 <script src="js/jquery-2.1.4.min.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
 <script src="js/script.js"></script>
 <script src="js/mui.min.js"></script>
+  <script type="text/javascript">
+
+    // порядок - красный, желтый, зеленый
+    $(function() {
+      var markings = [
+        { color: "#FBE9E7", lineWidth: 1, yaxis: { from: 0, to: 78 } },
+        { color: "#FFFDE7", lineWidth: 1, yaxis: { from: 78, to: 80 } },
+        { color: "#E8F5E9", lineWidth: 1, yaxis: { from: 80, to: 530 } }
+      ];
+
+      var d1 = {
+        color: '#212121',
+        data:  [[0, 78], [1, 80], [2, 90], [3, 75]]
+      };
+
+
+      $.plot("#placeholder", [d1],
+         {
+            xaxes: [
+               { show: false }
+            ],
+           grid: { markings: markings }
+         }
+      )
+
+    });
+
+  </script>
+
 </body>
 </html>
