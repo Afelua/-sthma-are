@@ -10,12 +10,23 @@ if($_GET['fname'] AND $_GET['name'] AND $_GET['sname'] AND $_GET['sex'] AND $_GE
   if(!$query){
     $code = "100";
     $message = "error";
-    echo("{\"code\": \"".$code."\", \"message\": \"".$message."\", \"id\": \"".$query_id."\"}" );
+//    echo("{\"code\": \"".$code."\", \"message\": \"".$message."\", \"id\": \"".$query_id."\"}");
+    $arr = array('code' => $code, 'message' => $message, 'id' => $query_id);
+    echo json_encode($arr);
   }
   else{
     $code = "200";
     $message = "access";
-    echo("{\"code\": \"".$code."\", \"message\": \"".$message."\", \"id\": \"".$query_id."\"}" );
+//    echo("{\"code\": \"".$code."\", \"message\": \"".$message."\", \"id\": \"".$query_id."\"}");
+    $arr = array('code' => $code, 'message' => $message, 'id' => $query_id);
+    echo json_encode($arr);
   }
+}
+else{
+    $code = "110";
+    $message = "QUERY IS NOT FULL";
+//  echo("{\"code\": \"".$code."\", \"message\": \"".$message."\", \"id\": \"".$query_id."\"}");
+    $arr = array('code' => $code, 'message' => $message, 'id' => 'null');
+    echo json_encode($arr);
 }
 ?>
