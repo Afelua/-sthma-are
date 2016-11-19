@@ -51,3 +51,20 @@ a:focus, a:hover {
 .mui-btn--accent {
     background-color: #EC407A;
 }
+
+.mui-select:focus>select {
+    border-color: #388E3C;
+}
+
+.registration #header,
+.registration #content-wrapper
+{left: 0}
+
+.registration #footer{
+    margin-left: 0;
+}
+
+.registration #footer .mui-container-fluid{
+    margin-left: 200px;
+}
+
