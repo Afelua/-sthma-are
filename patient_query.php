@@ -94,7 +94,8 @@
 ?>
           </tbody>
         </table>
-      </div>
+      </div
+
     </div>
     <footer id="footer">
       <div class="mui-container-fluid">
