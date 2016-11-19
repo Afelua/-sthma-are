@@ -1,0 +1,15 @@
+.mui-appbar {
+    background-color: #43A047;
+}
+
+#footer {
+    background-color: #43A047;
+}
+
+a {
+    color: #2E7D32;
+}
+
+a:focus, a:hover {
+    color: #1B5E20;
+}
