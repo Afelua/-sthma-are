@@ -1,8 +1,0 @@
-# С http на https
-RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
-
-# С www на без www
-RewriteCond %{HTTP_HOST} !^asthmacare.ru [NC]
-RewriteRule ^/?(.*)$ https://asthmacare.ru/$1 [L,R=301]
