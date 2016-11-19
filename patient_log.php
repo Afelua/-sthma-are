@@ -13,8 +13,9 @@ if($_GET['login'] AND $_GET['pass']) {
     $row = mysql_fetch_array($query);
     $code = "200";
     $message = "ACCESS";
-    $result = $row['id'];
-    $arr = array('code' => $code, 'message' => $message, 'result' => $result);
+    $result = 'true';
+    $id = $row['id'];
+    $arr = array('code' => $code, 'message' => $message, 'result' => $result, 'id' => $id);
     echo json_encode($arr);
   }
   else{
