@@ -101,6 +101,7 @@
         <option value="$PROJECT_DIR$/styles/style.css" />
         <option value="$PROJECT_DIR$/styles/main.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -252,12 +253,12 @@
       <updated>1479505596948</updated>
       <workItem from="1479505598264" duration="40000" />
       <workItem from="1479505658634" duration="3841000" />
-      <workItem from="1479545066590" duration="919000" />
+      <workItem from="1479545066590" duration="1094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4800000" />
+    <option name="totallyTimeSpent" value="4975000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1434" height="825" extended-state="6" />
