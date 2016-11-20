@@ -1,0 +1,106 @@
+<style type="text/css">
+<!--
+.lev2, .lev3, .lev4, .lev5, .lev6, .lev7, .lev8, .lev9{
+  text-indent: -20px;
+  padding-left: 20px;
+  text-align: justify;
+  font-size: 10pt;
+  border-color: #808080;
+  border: solid;
+  margin-left: 20px
+}
+.lev1{
+  text-align: justify;
+  font-size: 10pt;
+  border-color: #808080;
+  border: solid
+}
+.head_lev{
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px
+}
+.lev1 .head_lev{
+  display: none;
+  text-align: center;
+  font-size: 11pt;
+  font-weight: bolder
+}
+.lev2 .head_lev{
+  display: none;
+  text-align: center;
+  font-size: 10pt;
+  font-weight: bolder;
+}
+.lev3 .head_lev{
+  display: none;
+  text-align: left;
+  text-indent: 0px;
+  color: #A9A9A9
+}
+.lev4 .head_lev{
+  display: none;
+  text-align: center;
+}
+.lev5 .head_lev{
+  display: none;
+  text-align: center;
+}
+.lev6 .head_lev{
+  display: none;
+  text-align: center;
+}
+.lev7 .head_lev{
+  display: none;
+  text-align: center;
+}
+.lev8 .head_lev{
+  display: none;
+  text-align: center;
+}
+
+.rusname{
+  color: #008000;
+  font-weight: bold
+}
+.latname{
+  color: #008000;
+  font-style: italic
+}
+p{
+  text-indent: 10px;
+}
+ol.cirillic {list-style-type: none;}
+.lev2:nth-child(1):before {content: 'a) ';}
+.cirillic li:nth-child(2):before {content: 'б) ';}
+.cirillic li:nth-child(3):before {content: 'в) ';}
+.cirillic li:nth-child(4):before {content: 'г) ';}
+.cirillic li:nth-child(5):before {content: 'д) ';}
+.cirillic li:nth-child(6):before {content: 'е) ';}
+.cirillic li:nth-child(7):before {content: 'ж) ';}
+.cirillic li:nth-child(8):before {content: 'з) ';}
+.cirillic li:nth-child(9):before {content: 'и) ';}
+.cirillic li:nth-child(10):before {content: 'к) ';}
+.cirillic li:nth-child(11):before {content: 'л) ';}
+.cirillic li:nth-child(12):before {content: 'м) ';}
+.cirillic li:nth-child(13):before {content: 'н) ';}
+.cirillic li:nth-child(14):before {content: 'о) ';}
+.cirillic li:nth-child(15):before {content: 'п) ';}
+.cirillic li:nth-child(16):before {content: 'р) ';}
+.cirillic li:nth-child(17):before {content: 'с) ';}
+.cirillic li:nth-child(18):before {content: 'т) ';}
+.cirillic li:nth-child(19):before {content: 'у) ';}
+.cirillic li:nth-child(20):before {content: 'ф) ';}
+.cirillic li:nth-child(22):before {content: 'х) ';}
+.cirillic li:nth-child(23):before {content: 'ц) ';}
+.cirillic li:nth-child(24):before {content: 'ч) ';}
+.cirillic li:nth-child(25):before {content: 'ш) ';}
+.cirillic li:nth-child(26):before {content: 'щ) ';}
+.cirillic li:nth-child(27):before {content: 'э) ';}
+.cirillic li:nth-child(28):before {content: 'ю) ';}
+.cirillic li:nth-child(29):before {content: 'я) ';}
+
+-->
+</style>

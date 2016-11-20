@@ -1,0 +1,42 @@
+<?php
+echo "<div class=\"container\">";
+	echo "<div class=\"slider_accordion_area\">\n";
+		echo "<div class=\"static\">\n";
+			echo "<div>\n";
+				echo "<img src=\"".RELPATH."images/simple-slide.png\" alt=\" \" style=\"width:590px;\"/>\n";
+			echo "</div>\n";
+			echo "<div class=\"notopmargin left black\">\n";
+				echo "<h3 class=\"notopmargin\">Биология <a href=\"".PAGE_NAME."?div=5\" class=\"link light\">ЕГЭ 2017</a></h3>\n";
+				echo "<p>Учебно-методический комплекс <a href=\"".PAGE_NAME."?div=2\" class=\"link light\">для эффективной подготовки к экзамену</a> по биологии.</p>\n";
+			echo "</div>\n";
+		echo "</div>\n";
+	echo "</div>\n";
+
+	echo "<div class=\"span-24\" id=\"service_block\">\n";
+		echo "<h3 class=\"block_header\">Структура курса<a class=\"link\" href=\"services.html\"></a></h3>\n";
+		echo "<p></p>\n";
+		echo "<div class=\"span-6\">\n";
+			echo "<img class=\"servise_icon\" src=\"".RELPATH."images/icons/s1.png\" alt=\" \"/>\n";
+			echo "<h4><a class=\"link\" href=\"".PAGE_NAME."?div=1\">Теория</a></h4>\n";
+			echo "<p class=\"small\">Для студентов медицинских вузов. Представляет интерес преподавателям, аспирантам, врачам, а так же научным работникам медицинского и биологического профиля.</p>\n";
+		echo "</div>\n";
+		echo "<div class=\"span-6\">\n";
+			echo "<img class=\"servise_icon\" src=\"".RELPATH."images/icons/s3.png\" alt=\" \"/>\n";
+			echo "<h4><a class=\"link\" href=\"".PAGE_NAME."?div=2\">Практика</a></h4>\n";
+			echo "<p class=\"small\">Элеткронные вариант учебника по анатомии, эмбриологии, физиологии человека.</p>\n";
+		echo "</div>\n";
+		echo "<div class=\"span-6\">\n";
+			echo "<img class=\"servise_icon\" src=\"".RELPATH."images/icons/s2.png\" alt=\" \"/>\n";
+			echo "<h4><a class=\"link\" href=\"".PAGE_NAME."?div=3\">Проверочные работы</a></h4>\n";
+			echo "<p class=\"small\">Дает возможность дистанционного обучения школьников, студентов и аспирантов.</p>\n";
+		echo "</div>\n";
+		echo "<div class=\"span-6 last\">\n";
+			echo "<img class=\"servise_icon\" src=\"".RELPATH."images/icons/s4.png\" alt=\" \"/>\n";
+			echo "<h4><a class=\"link\" href=\"".PAGE_NAME."?div=4\">Справочники</a></h4>\n";
+			echo "<p class=\"small\">На сайте планируется размещение сервисов, для оценки полученных знаний в виде тестов, открытых вопросов.</p>\n";
+		echo "</div>\n";
+	echo "</div>\n";
+echo "</div>\n";
+echo "<!--End main container-->\n";
+echo "<div class=\"clear\"></div>\n";
+?>

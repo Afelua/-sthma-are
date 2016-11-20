@@ -1,0 +1,50 @@
+.task_edit,
+  .edit_menu{
+	padding: 3px;
+	transition: all .5s;
+	border: 1px solid rgba(82, 168, 236, .5);
+}
+.task_edit:focus,
+  edit_menu:focus{
+	border: 1px solid rgba(82, 168, 236, 1);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.9);
+	outline: 0 none;
+}
+
+#loader{
+	position:fixed;
+	display:none;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background:#f2f2f2;
+	opacity:.9;
+	z-index: 30;
+}
+#loader span{
+	display: block;
+	background: url(include/img/img/loader.gif);
+	width: 128px;
+	height: 15px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -7px 0 0 -56px;
+}
+#mes-edit{
+	display: none;
+	color: #000;
+	font-size: 15px;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 10px #ccc;
+	padding: 10px;
+	text-align: center;
+	width: 400px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -20px 0 0 -200px;
+	font-weight: bold;
+	background: #fff;
+}

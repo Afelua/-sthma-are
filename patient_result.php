@@ -1,10 +1,10 @@
 <?php
-if($_GET['id'] AND $_GET['exam'] AND $_GET['time']) {
+if($_GET['id']) {
   require_once("medicine/constants.php");
   require_once("medicine/base.php");
   require_once("medicine/functions.php");
 
-  $query_text_patient = "SELECT * FROM $table_patient WHERE id = ".$_GET['id'];
+  $query_text_patient = "SELECT * FROM $table_examination WHERE patient_id = ".$_GET['id'];
   $query_patient = mysql_query($query_text_patient);
   if(!$query_patient){
     echo "<p class='text'>Выбор подчинённых терминов. Поиск не осуществлен. Код ошибки:</p>";
@@ -12,7 +12,12 @@ if($_GET['id'] AND $_GET['exam'] AND $_GET['time']) {
   }
   if (mysql_num_rows($query_patient) > 0){
     $row_patient = mysql_fetch_array($query_patient);
-
+    echo "{\"".$_GET['id']."\": [";
+          $arr =  json_encode(array('percent' => $row_patient['percent'], 'cathegory' => $row_patient['cathegory']));
+    do {
+          $arr =  $arr.", ".json_encode(array('percent' => $row_patient['percent'], 'cathegory' => $row_patient['cathegory']));
+    }  while ($row_patient = mysql_fetch_array($query_patient));
+    echo $arr."]}";
   function get_age($date)
     {
       if (ereg ("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})", $date, $reg))

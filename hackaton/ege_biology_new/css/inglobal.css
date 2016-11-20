@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'inglobalregular';
+    src: url('inglobal.eot');
+    src: url('inglobal.eot?#iefix') format('embedded-opentype'),
+         url('inglobal.woff') format('woff'),
+         url('inglobal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inglobalbold';
+    src: url('inglobalb.eot');
+    src: url('inglobalb.eot?#iefix') format('embedded-opentype'),
+         url('inglobalb.woff') format('woff'),
+         url('inglobalb.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inglobalitalic';
+    src: url('inglobali.eot');
+    src: url('inglobali.eot?#iefix') format('embedded-opentype'),
+         url('inglobali.woff') format('woff'),
+         url('inglobali.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'inglobalbold_italic';
+    src: url('inglobalbi.eot');
+    src: url('inglobalbi.eot?#iefix') format('embedded-opentype'),
+         url('inglobalbi.woff') format('woff'),
+         url('inglobalbi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
