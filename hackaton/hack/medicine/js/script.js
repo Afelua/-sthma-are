@@ -99,26 +99,6 @@ jQuery(function($) {
     $('#add_parameter').hide();
   }
 
-  $('#send_parameter').click(function(){
-    var date	 = $('#date').val();
-    var result	 = $('#result').val();
-
-    $.ajax({
-      url: "action_parameter.php",
-      type: "post",
-      dataType: "json",
-      data: {
-        "date": 	date,
-        "result": 	result
-      },
-
-      success: function(data){
-        $('.messages').html('Информация успешно обновлена'); // выводим ответ сервера
-        $('#send_parameter').hide();
-        $('#add_parameter').show();
-      }
-    });
-  });
 
 
   $('#send-new-user').click(function(){

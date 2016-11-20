@@ -102,14 +102,27 @@
                     }while($row_ex = mysql_fetch_array($query_ex));
                     }
 
+              echo "<script>       \$('#send_parameter').click(function(){
+
+               console.log(".$_GET['patient_id'].");
+            return false;
+            var date  = \$('#date').val();
+            var result = \$('#result').val();
+
+
+
+          });";
+
  ?>
+               </script>
+
             </tbody>
           </table>
           <div class="messages"></div>
-          <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="add_parameter">Добавить наблюдение</button>
+          <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="send_parameter">Добавить наблюдение</button>
           <div class="add_show">
             <div class="mui-col-md-6 mui-panel">
-              <form>
+              <form  action="<?php echo PATH_FILE."patient_ex.php"?>" method="post" id="patient_add" >
                 <legend>Введите, пожалуйста, данные</legend>
                 <div class="mui-textfield">
                   <input type="datetime" placeholder="Дата показания" id="date" required>
@@ -117,7 +130,7 @@
                 <div class="mui-textfield">
                   <input type="text" placeholder="Значение" id="result" required>
                 </div>
-                <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="send_parameter">Отправить</button>
+                <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent">Отправить</button>
               </form>
             </div>
           </div>
