@@ -7,6 +7,12 @@
   <link href="styles/mui.min.css" rel="stylesheet" type="text/css" />
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <link href="styles/main.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+  <script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/mui.min.js"></script>
 
   <link rel="icon" sizes="16x16" href="images/favicon.ico">
   <title>Уход за Астмой - Asthma Care</title>
@@ -32,7 +38,11 @@
     <div class="mui-appbar mui--appbar-line-height">
       <div class="mui-container-fluid">
         <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
-        <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+        <div class="mui-col-md-12">
+          <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+          <span class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">Администратор, здравствуйте!</span>
+          <button class="mui-btn mui-btn--logout" id="logout">Выйти</button>
+        </div>
         <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">Уход за Астмой</span>
       </div>
     </div>
@@ -46,26 +56,48 @@
       <div class="mui-container-fluid">
         <div class="mui-row">
         <div class="mui-col-md-12">
-          <h2>Дополнительная информация</h2>
-          <table class="mui-table mui-table--bordered">
+          <h2>Информация</h2>
+          <table class="mui-table mui-table--bordered mui-table--information">
             <tbody>
-              <tr>
-                <td>Адрес</td>
-                <td>г. Санкт-Петербург</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button></td>
-              </tr>
-              <tr>
-                <td>Адрес последнего вызова</td>
-                <td>г. Санкт-Петербург</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button></td>
-              </tr>
-              <tr>
-                <td>Телефон</td>
-                <td>8 921 777-77-77</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button></td>
-              </tr>
+            <tr>
+              <td>Фамилия</td>
+              <td>
+                <input type="text" value="Иванов" disabled id="fname" required>
+              </td>
+            </tr>
+            <tr>
+              <td>Имя</td>
+              <td><input type="text" value="Иван" disabled  id="name" required></td>
+            </tr>
+            <tr>
+              <td>Отчество</td>
+              <td><input type="text" value="Иванович" disabled id="sname" required></td>
+            </tr>
+            <tr>
+              <td>Дата рождения</td>
+              <td><input type="date" value="18.12.1990" disabled id="b_date" required></td>
+            </tr>
+            <tr>
+              <td>Рост</td>
+              <td><input type="text" value="180" disabled id="growth" required></td>
+            </tr>
+            <tr>
+              <td>Адрес</td>
+              <td><input type="text" value="г. Санкт-Петербург" disabled id="address"></td>
+            </tr>
+            <tr>
+              <td>Адрес последнего вызова</td>
+              <td><input type="text" value="г. Санкт-Петербург, ул. Байконурская" disabled id="address_last"></td>
+            </tr>
+            <tr>
+              <td>Телефон</td>
+              <td><input type="tel" value="+79523674321" disabled id="phone"></td>
+            </tr>
             </tbody>
           </table>
+          <div class="messages"></div>
+          <button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary" id="edit">Редактировать</button>
+          <button class="mui-btn mui-btn--raised mui-btn--small mui-btn--accent" id="save">Сохранить</button>
         </div>
         <div class="mui-col-md-12">
           <h2>График наблюдений</h2>
@@ -95,7 +127,22 @@
               </tr>
             </tbody>
           </table>
-          <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent">Добавить наблюдение</button>
+          <div class="messages"></div>
+          <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="add_parameter">Добавить наблюдение</button>
+          <div class="add_show">
+            <div class="mui-col-md-6 mui-panel">
+              <form>
+                <legend>Введите, пожалуйста, данные</legend>
+                <div class="mui-textfield">
+                  <input type="datetime" placeholder="Дата показания" id="date" required>
+                </div>
+                <div class="mui-textfield">
+                  <input type="text" placeholder="Значение" id="result" required>
+                </div>
+                <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="send_parameter">Отправить</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -111,11 +158,7 @@
     <br>Сделано в рамках Всероссийского хакатона <a href="http://www.hackrussia.ru/" target="_blank" >HackRussia</a>
   </div>
 </footer>
-<script src="js/jquery-2.1.4.min.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
-<script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
-<script src="js/script.js"></script>
-<script src="js/mui.min.js"></script>
+
   <script type="text/javascript">
 
     // порядок - красный, желтый, зеленый
@@ -130,7 +173,6 @@
         color: '#212121',
         data:  [[0, 78], [1, 80], [2, 90], [3, 75]]
       };
-
 
       $.plot("#placeholder", [d1],
          {

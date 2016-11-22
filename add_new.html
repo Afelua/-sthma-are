@@ -7,6 +7,12 @@
   <link href="styles/mui.min.css" rel="stylesheet" type="text/css" />
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <link href="styles/main.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+  <script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/mui.min.js"></script>
   <link rel="icon" sizes="16x16" href="images/favicon.ico">
   <title>Уход за Астмой - Asthma Care</title>
 </head>
@@ -31,7 +37,11 @@
     <div class="mui-appbar mui--appbar-line-height">
       <div class="mui-container-fluid">
         <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
-        <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+        <div class="mui-col-md-12">
+          <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+          <span class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">Администратор, здравствуйте!</span>
+          <button class="mui-btn mui-btn--logout" id="logout">Выйти</button>
+        </div>
         <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">Уход за Астмой</span>
       </div>
     </div>
@@ -48,37 +58,35 @@
             <form>
               <legend>Напишите, пожалуйста, данные пациента</legend>
               <div class="mui-textfield">
-                <input type="text" placeholder="Фамилия">
+                <input type="text" placeholder="Фамилия" id="fname" required>
               </div>
               <div class="mui-textfield">
-                <input type="text" placeholder="Имя">
+                <input type="text" placeholder="Имя"  id="name" required>
               </div>
               <div class="mui-textfield">
-                <input type="text" placeholder="Отчество">
+                <input type="text" placeholder="Отчество"  id="sname" required>
               </div>
               <div class="mui-select">
-                <select name="sex">
+                <select name="sex" id="sex" required>
                   <option value="0">Пол</option>
                   <option value="1">Женский</option>
                   <option value="2">Мужской</option>
                 </select>
               </div>
               <div class="mui-textfield">
-                <input type="date" placeholder="Дата рождения">
+                <input type="date" placeholder="Дата рождения" id="b_date" required>
               </div>
               <div class="mui-textfield">
-                <input type="text" placeholder="Рост">
+                <input type="text" placeholder="Рост" id="growth" required>
               </div>
-              <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent">Отправить</button>
+              <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="send-new-user">Отправить</button>
             </form>
           </div>
         </div>
-      </div>
+        <div class="messages"></div>
+        </div>
        <br>
     </div>
-
-
-
   </div>
 </div>
 <footer id="footer">
@@ -86,8 +94,5 @@
     <br>Сделано в рамках Всероссийского хакатона <a href="http://www.hackrussia.ru/" target="_blank" >HackRussia</a>
   </div>
 </footer>
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/mui.min.js"></script>
 </body>
 </html>

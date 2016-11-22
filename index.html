@@ -7,6 +7,12 @@
   <link href="styles/mui.min.css" rel="stylesheet" type="text/css" />
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <link href="styles/main.css" rel="stylesheet" type="text/css" />
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+  <script language="javascript" type="text/javascript" src="js/jquery.flot.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/mui.min.js"></script>
   <link rel="icon" sizes="16x16" href="images/favicon.ico">
   <title>Уход за Астмой - Asthma Care</title>
 </head>
@@ -31,7 +37,11 @@
     <div class="mui-appbar mui--appbar-line-height">
       <div class="mui-container-fluid">
         <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
-        <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+        <div class="mui-col-md-12">
+          <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+          <span class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">Администратор, здравствуйте!</span>
+          <button class="mui-btn mui-btn--logout" id="logout">Выйти</button>
+        </div>
         <span class="mui--text-title mui--visible-xs-inline-block mui--visible-sm-inline-block">Уход за Астмой</span>
       </div>
     </div>
@@ -42,103 +52,159 @@
       <br>
       <h1>Список пациентов</h1>
       <div class="mui-row mui-col-md-12">
-        <div class="mui-col-md-8"></div>
-        <div class="mui-col-md-4 text-right">
-          <form class="mui-form--inline">
-            <div class="mui-textfield">
-              <input type="text">
-            </div>
-            <button class="mui-btn mui-btn--raised mui-btn--accent mui-btn--small"><img src="images/search.svg" alt="" width="15"/></button>
-          </form>
-          <br>
-        </div>
         <ul class="mui-tabs__bar mui-tabs__bar--justified">
-          <li class="mui--is-active"><a data-mui-toggle="tab" data-mui-controls="pane-justified-1">Все пациенты</a></li>
-          <li><a data-mui-toggle="tab" data-mui-controls="pane-justified-2">Уровень наблюдения</a></li>
-          <li><a data-mui-toggle="tab" data-mui-controls="pane-justified-3">Уровень риска</a></li>
+          <li class="mui--is-active"><a href="index.html">Все пациенты</a></li>
+          <li><a href="index_yellow.html">Уровень наблюдения</a></li>
+          <li><a href="index_red.html">Уровень риска</a></li>
         </ul>
-        <div class="mui-tabs__pane mui--is-active" id="pane-justified-1">
-          <table class="mui-table mui-table--bordered">
+        <br>
+        <div id="content">
+          <table id="tablePatients" class="display" cellspacing="0" width="100%">
             <thead>
-              <tr>
-                <th>№<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>ФИО<img src="images/arrow_up.svg" alt="" height="15"/></th>
-                <th>Время показаний<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Эталон<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Значение<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Уровень<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th></th>
-              </tr>
+            <tr>
+              <th>№<img src="images/arrow_both.svg" alt="" width="15"/></th>
+              <th>ФИО<img src="images/arrow_both.svg" alt="" height="15"/></th>
+              <th>Время показаний<img src="images/arrow_both.svg" alt="" height="15"/></th>
+              <th>Эталон<img src="images/arrow_both.svg" alt="" height="15"/></th>
+              <th>Значение<img src="images/arrow_both.svg" alt="" height="15"/></th>
+              <th>Уровень<img src="images/arrow_both.svg" alt="" height="15"/></th>
+              <th></th>
+            </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td><a href="person.html">Иванов Иван Иваныч</a></td>
-                <td>2016.11.19</td>
-                <td>68</td>
-                <td>78</td>
-                <td>зеленый</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
-              </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Иванов Иван Иваныч</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Сергеев Сергей Сергеевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Алексеев Алексей Александрович</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>желтый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Юрий Дмитриевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Аналотий Георгиевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Семен Ерьевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Евгений Владимирович</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>красный</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Сергей Васильевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Дмитрий Сергеевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Елена Александровна</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>желтый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Антон Георгиевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Мартынов Дмитрий Андреевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Анатолий Дмитриевич</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>зеленый</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><a href="person.html">Сурикова Анастасия</a></td>
+              <td>2016.11.19</td>
+              <td>68</td>
+              <td>78</td>
+              <td>красный</td>
+              <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
+            </tr>
             </tbody>
           </table>
-        </div>
-        <div class="mui-tabs__pane" id="pane-justified-2">
-          <table class="mui-table mui-table--bordered">
-            <thead>
-              <tr>
-                <th>№<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>ФИО<img src="images/arrow_up.svg" alt="" height="15"/></th>
-                <th>Время показаний<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Эталон<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Значение<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Уровень<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><a href="person.html">Иванов Иван Иваныч1</a></td>
-                <td>2016.11.19</td>
-                <td>68</td>
-                <td>78</td>
-                <td>зеленый</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="mui-tabs__pane" id="pane-justified-3">
-          <table class="mui-table mui-table--bordered">
-            <thead>
-              <tr>
-                <th>№<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>ФИО<img src="images/arrow_up.svg" alt="" height="15"/></th>
-                <th>Время показаний<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Эталон<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Значение<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th>Уровень<img src="images/arrow_down.svg" alt="" height="15"/></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td><a href="person.html">Иванов Иван Иваныч2</a></td>
-                <td>2016.11.19</td>
-                <td>68</td>
-                <td>78</td>
-                <td>зеленый</td>
-                <td class="text-right"><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--primary">Редактировать</button><button class="mui-btn mui-btn--raised mui-btn--small mui-btn--danger">Удалить</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          </div>
+        <br>
       </div>
     </div>
   </div>
-
 </div>
 </div>
 <footer id="footer">
@@ -146,8 +212,6 @@
     <br>Сделано в рамках Всероссийского хакатона <a href="http://www.hackrussia.ru/" target="_blank" >HackRussia</a>
   </div>
 </footer>
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/mui.min.js"></script>
+
 </body>
 </html>

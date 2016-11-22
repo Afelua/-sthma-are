@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../styles/mui.min.css" rel="stylesheet" type="text/css" />
+  <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+  <link href="../styles/main-mobile.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" sizes="16x16" href="../images/favicon.ico">
+  <title>Уход за Астмой - Asthma Care</title>
+</head>
+<body>
+  <header id="header">
+    <div class="mui-appbar mui--appbar-line-height">
+      <div id="sidedrawer-brand" class="mui--appbar-line-height">
+        <img src="../images/logo.svg" width="40" height="40" alt="">
+        Уход за Астмой
+      </div>
+    </div>
+  </header>
+  <div id="content-wrapper">
+    <div class="mui-container-fluid">
+      <div class="mui-row">
+        <div class="mui-col-md-1"></div>
+        <div class="mui-col-md-10 registration">
+          <form>
+            <legend>Заполните, пожалуйста, все необходимые поля</legend>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Фамилия" id="fname" required>
+            </div>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Имя"  id="name" required>
+            </div>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Отчество"  id="sname" required>
+            </div>
+            <div class="mui-select">
+              <select name="sex" id="sex" required>
+                <option value="0">Пол</option>
+                <option value="1">Женский</option>
+                <option value="2">Мужской</option>
+              </select>
+            </div>
+            <div class="mui-textfield">
+              <input type="date" placeholder="Дата рождения" id="b_date" required>
+            </div>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Рост" id="growth" required>
+            </div>
+            <div class="mui-textfield">
+              <input type="text" placeholder="Логин" required id="login">
+            </div>
+            <div class="mui-textfield">
+              <input type="password" placeholder="Пароль" required id="password">
+            </div>
+            <div class="center">
+              <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent" id="send-new-user">Зарегистрироваться</button>
+            </div>
+          </form>
+          <br>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer id="footer">
+  <div class="mui-container-fluid">
+    <br>Сделано в рамках Всероссийского хакатона <a href="http://www.hackrussia.ru/" target="_blank" >HackRussia</a>
+  </div>
+</footer>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/mui.min.js"></script>
+</body>
+</html>
